@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet"
+      href="{{url_for('.static', filename='bootstrap.min.css')}}">
+  <link rel="stylesheet"
+      href="{{url_for('.static', filename='bootstrap-editable.css')}}">
+  <script src="{{url_for('.static', filename='jquery-2.0.3.min.js')}}"></script>
+   <script src="{{url_for('.static', filename='bootstrap.min.js')}}"></script>
+   <script src="{{url_for('.static', filename='bootstrap-editable.min.js')}}"></script>
+
+  </style>
+  <title>AdminPage</title>
+</head>
+
+<body>
+  <h3>{{tname}}</h3>
+  <table>
+    <tr>
+      {% for column_name in lis[0].keys() %}
+        <th>{{column_name}}</th>
+      {% endfor %}
+    </tr>
+    {% for dict_item in lis %}
+    <tr>
+        {% for value in dict_item.values() %}
+          <td>{{value}}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>
